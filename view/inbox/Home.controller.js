@@ -5,7 +5,6 @@ sap.ui.controller("view.inbox.Home", {
 	},
 	
 	onListItemTap: function(oEvent){
-		debugger;
 		var sTitle = oEvent.getSource().getTitle(), 
 			sFilterProperty;
 		if(sTitle === "Unread"){
@@ -16,4 +15,5 @@ sap.ui.controller("view.inbox.Home", {
 		
 		this.router.navTo("inbox", {inboxType:sFilterProperty});
 	}
+
 });

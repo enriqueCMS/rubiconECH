@@ -5,14 +5,13 @@ sap.ui.jsview("view.inbox.Home", {
 		return "view.inbox.Home";
 	},
 	createContent : function(oController) {
-	   debugger
-	    
 		var oInboxList = new sap.m.List({
 			inset: true,
 			headerText: "Lista de trabajo",
 			items: [
 				new sap.m.StandardListItem({
-					title : "{ids>/ids/USER_DATA}",
+					//title : "{ids>/ids/USER_DATA}",
+					title : "Hospitalización",
 					icon : "{img>/icon/INBOX}",
 					activeIcon: "{img>/icon/INBOX_ACTIVE}",
 					type : sap.m.ListType.Active,
@@ -22,30 +21,29 @@ sap.ui.jsview("view.inbox.Home", {
 			]
 		});
 		
-		var oRestList = new sap.m.List({
-			inset: true,
-			items: [
-				new sap.m.StandardListItem({
-					title : "Drafts (Inactive)",
-					type : sap.m.ListType.Inactive,
-					counter: 8
-				}),
-				new sap.m.StandardListItem({
-					title : "Sent Items (Inactive)",
-					type : sap.m.ListType.Inactive
-				}),
-				new sap.m.StandardListItem({
-					title : "Deleted Items (Inactive)",
-					type : sap.m.ListType.Inactive
-				})
-			]
-		});
+		// load user data into model
+		var data = {
+			user: {  	
+			    "role": "Doctor",
+  	            "id": 7068,
+            	"name": "Jewell",
+  	            "last_name": "Orr",
+            	"department": "Traumatología",
+            	"hospital": "La Paz",
+            	"email": "jewellorr@zork.com",
+  	            "telephone": "657565757"
+	        }
+		};
+			
+		// create a Model with this data
+		var model = new sap.ui.model.json.JSONModel();
+		model.setData(data);
 
 		var oPage = new sap.m.Page({
-		    id: "user_data",
+		    id: "user_" + model.oData.user.id,
 			icon: "{img>/icon/UI5}",
-			title: "{userData>/user/name}",
-			content: [oInboxList, oRestList]
+			title: model.oData.user.role + " " + model.oData.user.name + " " + model.oData.user.last_name,
+			content: [oInboxList]
 		});
 		
 		if(!sap.ui.Device.system.phone){
