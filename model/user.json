@@ -1,0 +1,13 @@
+{
+  "user":
+	{
+  	"role": "Doctor",
+  	"id": 7068,
+  	"name": "Jewell",
+  	"last_name": "Orr",
+  	"department": "Traumatología",
+  	"hospital": "La Paz",
+  	"email": "jewellorr@zork.com",
+  	"telephone": "657565757"
+	}	
+}

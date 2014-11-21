@@ -1,0 +1,24 @@
+{
+	"worklist": [
+    	{
+        	"name": "Hospitalización",
+        	"url": "getInPatients (User.id, date)"
+    	},
+    	{
+        	"name": "Consultas",
+        	"url": "getOutPatients(User.id, date)"
+    	},
+    	{
+        	"name": " Quirófano",
+        	"url": "getSurgery(User.id, date)"
+    	},
+    	{
+        	"name": "Urgencias",
+        	"url": "getEmergency (User.id, date)"
+    	},
+    	{
+        	"name": "Estudio",
+        	"url": "getStudy(User.id, date)"
+    	}
+	]
+}

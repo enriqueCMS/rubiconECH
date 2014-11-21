@@ -5,34 +5,19 @@ sap.ui.jsview("view.inbox.Home", {
 		return "view.inbox.Home";
 	},
 	createContent : function(oController) {
+	   debugger
 	    
 		var oInboxList = new sap.m.List({
 			inset: true,
-			headerText: "Inbox",
+			headerText: "Lista de trabajo",
 			items: [
 				new sap.m.StandardListItem({
-					title : "All",
+					title : "{ids>/ids/USER_DATA}",
 					icon : "{img>/icon/INBOX}",
 					activeIcon: "{img>/icon/INBOX_ACTIVE}",
 					type : sap.m.ListType.Active,
 					counter: 3,
 					press : [oController.onListItemTap, oController]
-				}),
-				new sap.m.StandardListItem({
-					title : "Unread",
-					icon : "{img>/icon/UNREAD}",
-					activeIcon: "{img>/icon/UNREAD_ACTIVE}",
-					type : sap.m.ListType.Active,
-					counter: 2,
-					press : [oController.onListItemTap, oController]
-				}),
-				new sap.m.StandardListItem({
-					title : "Important",
-					icon : "{img>/icon/IMPORTANT}",
-					activeIcon: "{img>/icon/IMPORTANT_ACTIVE}",
-					type : sap.m.ListType.Active,
-					counter: 2,
-					press : [oController.onListItemTap, oController] 
 				})
 			]
 		});
@@ -55,11 +40,11 @@ sap.ui.jsview("view.inbox.Home", {
 				})
 			]
 		});
-		debugger;
+
 		var oPage = new sap.m.Page({
 		    id: "user_data",
 			icon: "{img>/icon/UI5}",
-			title: "Doctor López Llena",
+			title: "{userData>/user/name}",
 			content: [oInboxList, oRestList]
 		});
 		
