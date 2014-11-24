@@ -5,7 +5,19 @@ sap.ui.jsview("view.inbox.Home", {
 		return "view.inbox.Home";
 	},
 	createContent : function(oController) {
-		var oInboxList = new sap.m.List({
+		var UserDataModel = new sap.ui.model.json.JSONModel();
+		UserDataModel.loadData("model/user.json",false,false);
+		sap.ui.getCore().setModel(UserDataModel, "UserDataModel");
+		var UserData = UserDataModel.oData.user;
+		
+	
+		var WorklistModel = new sap.ui.model.json.JSONModel();
+		WorklistModel.loadData("model/worklist.json",false,false);
+		sap.ui.getCore().setModel(WorklistModel, "WorklistModel");
+		var WorkList = WorklistModel.oData.worklist;
+		
+		
+		/*var oInboxList = new sap.m.List({
 			inset: true,
 			headerText: "Lista de trabajo",
 			items: [
@@ -19,48 +31,30 @@ sap.ui.jsview("view.inbox.Home", {
 					press : [oController.onListItemTap, oController]
 				})
 			]
-		});
-		
-		// load user data into model
-		var data = {
-			user: {  	
-			    "role": "Doctor",
-  	            "id": 7068,
-            	"name": "Jewell",
-  	            "last_name": "Orr",
-            	"department": "Traumatología",
-            	"hospital": "La Paz",
-            	"email": "jewellorr@zork.com",
-  	            "telephone": "657565757"
-	        }
-		};
-			
-		// create a Model with this data
-		var model = new sap.ui.model.json.JSONModel();
-		model.setData(data);
-		
-		var model2 = new sap.ui.model.json.JSONModel();
-		model2.loadData("model/user.json",false,false);
-		//sap.ui.getCore().setModel(model2);
-		
-		
-		
-        //debugger;
-		/*var oPage = new sap.m.Page({
-		    id: "user_" + model.oData.user.id,
-			icon: "{img>/icon/UI5}",
-			title: model.oData.user.role + " " + model.oData.user.name + " " + model.oData.user.last_name,
-			content: [oInboxList]
 		});*/
+		var oListStandard = new sap.m.List({ 
+		    inset : true, 
+		    headerText: "Lista de trabajo"
+		});
+		var item = new sap.m.StandardListItem({
+              title : "{name}",
+              iconInset: false,
+              type : sap.m.ListType.Active,
+              press: function(evt){
+                  debugger;
+                  console.log("holaaa");
+                        }
+          });
+        debugger;  
+        oListStandard.setModel(WorklistModel);
+        oListStandard.bindAggregation("items","/worklist" , item);
 		
 		var oPage = new sap.m.Page({
-		    id: "user_" + model.oData.user.id,
+		    id: "user_" + UserDataModel.oData.user.id,
 			icon: "{img>/icon/UI5}",
-			title: "{/user/role}",
-			content: [oInboxList]
+			title: UserData.role + " " + UserData.name + " " + UserData.last_name ,
+			content: [oListStandard]
 		});
-		oPage.setModel(model2);
-		
 		
 		if(!sap.ui.Device.system.phone){
 			//Footer is added to show the switch between SplitApp modes.

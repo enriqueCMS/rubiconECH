@@ -100,11 +100,6 @@ sap.ui.core.UIComponent.extend("rubicon_ns.Component", {
 		// load ids into model
 		var oIdsModel = new sap.ui.model.json.JSONModel("model/ids.json");
 		oView.setModel(oIdsModel, "ids");
-	
-		
-		// load user data into model
-		var oWorklistModel = new sap.ui.model.json.JSONModel("model/worklist.json");
-		oView.setModel(oWorklistModel, "worklist");
 		
 		// done
 		return oView;
