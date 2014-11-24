@@ -40,12 +40,12 @@ sap.ui.jsview("view.inbox.Home", {
               title : "{name}",
               iconInset: false,
               type : sap.m.ListType.Active,
+              id : "paco",
               press: function(evt){
                   debugger;
                   console.log("holaaa");
                         }
           });
-        debugger;  
         oListStandard.setModel(WorklistModel);
         oListStandard.bindAggregation("items","/worklist" , item);
 		

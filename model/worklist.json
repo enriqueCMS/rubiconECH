@@ -2,23 +2,28 @@
 	"worklist": [
     	{
         	"name": "Hospitalización",
-        	"url": "getInPatients (User.id, date)"
+        	"url": "getInPatients (User.id, date)",
+        	"id": "213"
     	},
     	{
         	"name": "Consultas",
-        	"url": "getOutPatients(User.id, date)"
+        	"url": "getOutPatients(User.id, date)",
+        	"id": "2324"
     	},
     	{
         	"name": " Quirófano",
-        	"url": "getSurgery(User.id, date)"
+        	"url": "getSurgery(User.id, date)",
+        	"id": "35234"
     	},
     	{
         	"name": "Urgencias",
-        	"url": "getEmergency (User.id, date)"
+        	"url": "getEmergency (User.id, date)",
+        	"id": "13214"
     	},
     	{
         	"name": "Estudio",
-        	"url": "getStudy(User.id, date)"
+        	"url": "getStudy(User.id, date)",
+        	"id": "9834"
     	}
 	]
 }
