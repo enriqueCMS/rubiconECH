@@ -38,13 +38,29 @@ sap.ui.jsview("view.inbox.Home", {
 		// create a Model with this data
 		var model = new sap.ui.model.json.JSONModel();
 		model.setData(data);
-
-		var oPage = new sap.m.Page({
+		
+		var model2 = new sap.ui.model.json.JSONModel();
+		model2.loadData("model/user.json",false,false);
+		//sap.ui.getCore().setModel(model2);
+		
+		
+		
+        //debugger;
+		/*var oPage = new sap.m.Page({
 		    id: "user_" + model.oData.user.id,
 			icon: "{img>/icon/UI5}",
 			title: model.oData.user.role + " " + model.oData.user.name + " " + model.oData.user.last_name,
 			content: [oInboxList]
+		});*/
+		
+		var oPage = new sap.m.Page({
+		    id: "user_" + model.oData.user.id,
+			icon: "{img>/icon/UI5}",
+			title: "{/user/role}",
+			content: [oInboxList]
 		});
+		oPage.setModel(model2);
+		
 		
 		if(!sap.ui.Device.system.phone){
 			//Footer is added to show the switch between SplitApp modes.
