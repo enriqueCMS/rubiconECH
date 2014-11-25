@@ -8,6 +8,7 @@
 		"UNREAD_ACTIVE": "img/unread_active.png",
 		"IMPORTANT": "img/important.png",
 		"IMPORTANT_ACTIVE": "img/important_active.png",
-		"IMPORTANT_GREY": "img/important_grey.png"
+		"IMPORTANT_GREY": "img/important_grey.png",
+		"COMMON": "img/logo_negro_red.png"
 	}
 }

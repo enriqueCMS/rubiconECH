@@ -15,24 +15,8 @@ sap.ui.jsview("view.inbox.Home", {
 		WorklistModel.loadData("model/worklist.json",false,false);
 		sap.ui.getCore().setModel(WorklistModel, "WorklistModel");
 		var WorkList = WorklistModel.oData.worklist;
-		
-		
-		/*var oInboxList = new sap.m.List({
-			inset: true,
-			headerText: "Lista de trabajo",
-			items: [
-				new sap.m.StandardListItem({
-					//title : "{ids>/ids/USER_DATA}",
-					title : "Hospitalización",
-					icon : "{img>/icon/INBOX}",
-					activeIcon: "{img>/icon/INBOX_ACTIVE}",
-					type : sap.m.ListType.Active,
-					counter: 3,
-					press : [oController.onListItemTap, oController]
-				})
-			]
-		});*/
-		var oListStandard = new sap.m.List({ 
+
+		var oWorklist = new sap.m.List({ 
 		    inset : true, 
 		    headerText: "Lista de trabajo"
 		});
@@ -40,22 +24,22 @@ sap.ui.jsview("view.inbox.Home", {
               title : "{name}",
               iconInset: false,
               type : sap.m.ListType.Active,
-              id : "paco",
+              id  : "worklist" + WorkList[0].id,
               press: function(evt){
-                  debugger;
-                  console.log("holaaa");
+                  alert("press id ");
                         }
           });
-        oListStandard.setModel(WorklistModel);
-        oListStandard.bindAggregation("items","/worklist" , item);
+
+        oWorklist.setModel(WorklistModel);
+        oWorklist.bindAggregation("items","/worklist" , item);
 		
 		var oPage = new sap.m.Page({
 		    id: "user_" + UserDataModel.oData.user.id,
 			icon: "{img>/icon/UI5}",
 			title: UserData.role + " " + UserData.name + " " + UserData.last_name ,
-			content: [oListStandard]
+			content: [oWorklist]
 		});
-		
+
 		if(!sap.ui.Device.system.phone){
 			//Footer is added to show the switch between SplitApp modes.
 			oPage.setFooter(new sap.m.Toolbar({
