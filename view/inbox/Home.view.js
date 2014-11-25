@@ -47,17 +47,11 @@ sap.ui.jsview("view.inbox.Home", {
 					new sap.m.ToolbarSpacer(),
 					new sap.m.Select({
 						items: [new sap.ui.core.Item({
-							key: "showhide",
-							text: "ShowHideMode"
-						}), new sap.ui.core.Item({
-							key: "stretch",
-							text: "StretchCompressMode"
+							key: "spanish",
+							text: "Español"
 						}),new sap.ui.core.Item({
-							key: "hide",
-							text: "HideMode"
-						}),new sap.ui.core.Item({
-							key: "popover",
-							text: "PopoverMode"
+							key: "english",
+							text: "English"
 						})],
 						change: function(oControlEvent) {
 							oController.onSelectChange(oControlEvent);

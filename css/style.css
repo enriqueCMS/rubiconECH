@@ -9,4 +9,15 @@
 
 .sapMListHdr{
     padding:0 2rem;
+    background: #e5e5e5;
+    border-right: 2px solid white;
+}
+
+.sapMSplitContainerMaster{
+    width: 250px;
+}
+
+.sap-desktop .sapMIBar.sapMFooter-CTX {
+    background-color: #e5e5e5;
+    border-right: 2px solid #DBEAF9;
 }

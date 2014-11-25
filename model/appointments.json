@@ -1,0 +1,49 @@
+{
+    "appointments": [
+        {
+            "time": "10:00",
+            "patient": {
+                "id": 1231313,
+                "name": "Sybil",
+                "last_name": "Barnes",
+                "url": "getPatientData(1231313)",
+                "history_number": 417939
+            },
+            "reason": "ACO",
+            "type": "Oftalmología",
+            "payor": "PR",
+            "recordId": "123422",
+            "status": "Active"
+        },
+        {
+            "time": "10:30",
+            "patient": {
+                "id": 1236573,
+                "name": "Francisco",
+                "last_name": "DeBorbon",
+                "url": "getPatientData(Id)",
+                "history_number": 457949
+            },
+            "reason": "UJA",
+            "type": "Traumatología ",
+            "payor": "PR",
+            "recordId": "324356",
+            "status": "Canceled"
+        },
+        {
+            "time": "11:00",
+            "patient": {
+                "id": 1234598,
+                "name": "Maria",
+                "last_name": "Ramirez",
+                "url": "getPatientData(Id)",
+                "history_number": 2509493
+            },
+            "reason": "ELE",
+            "type": "Primera Consulta ",
+            "payor": "PR",
+            "recordId": "764221",
+            "status": "Waiting Room"
+        }
+    ]
+}
