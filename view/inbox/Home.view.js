@@ -5,27 +5,22 @@ sap.ui.jsview("view.inbox.Home", {
 		return "view.inbox.Home";
 	},
 	createContent : function(oController) {
-		var UserDataModel = new sap.ui.model.json.JSONModel();
-		UserDataModel.loadData("model/user.json",false,false);
-		sap.ui.getCore().setModel(UserDataModel, "UserDataModel");
-		var UserData = UserDataModel.oData.user;
-		
-	
-		var WorklistModel = new sap.ui.model.json.JSONModel();
-		WorklistModel.loadData("model/worklist.json",false,false);
-		sap.ui.getCore().setModel(WorklistModel, "WorklistModel");
+	    
+        var UserData = oController.onLoadUserData();
+		var WorklistModel = oController.onLoadWorklist();
 		var WorkList = WorklistModel.oData.worklist;
-
-		var oWorklist = new sap.m.List({ 
+        
+		var oWorklist = new sap.m.List("worklist",{ 
 		    inset : true, 
 		    headerText: "Lista de trabajo"
 		});
-		var item = new sap.m.StandardListItem({
+		var item = new sap.m.StandardListItem("i",{
               title : "{name}",
+              //description : "{id}",
               iconInset: false,
               type : sap.m.ListType.Active,
-              id  : "worklist" + WorkList[0].id,
               press: function(evt){
+                  debugger
                   alert("press id ");
                         }
           });
@@ -34,7 +29,7 @@ sap.ui.jsview("view.inbox.Home", {
         oWorklist.bindAggregation("items","/worklist" , item);
 		
 		var oPage = new sap.m.Page({
-		    id: "user_" + UserDataModel.oData.user.id,
+		    id: "user_" + UserData.id,
 			icon: "{img>/icon/UI5}",
 			title: UserData.role + " " + UserData.name + " " + UserData.last_name ,
 			content: [oWorklist]

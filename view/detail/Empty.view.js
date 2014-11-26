@@ -5,7 +5,6 @@ sap.ui.jsview("view.detail.Empty", {
     	AppointmentsModel.loadData("model/appointments.json",false,false);
     	sap.ui.getCore().setModel(AppointmentsModel, "AppointmentsModel");
 	    var Appointments = AppointmentsModel.oData.appointments;
-	    debugger
 	
 	//tabla oTableAppointments
 	//var oTableAppointments = new sap.m.Table("tableAppointments");
